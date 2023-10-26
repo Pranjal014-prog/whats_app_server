@@ -1,0 +1,35 @@
+import express from "express";
+import DBconnection from "./connection/db.js";
+import bodyParser from 'body-parser';
+import Image from "./routes/Login.js";
+import Login from "./routes/Check.js";
+import User from "./routes/User.js";
+import ConversationRoute from "./routes/Conversation.js";
+import GetConversation from "./routes/GetConversation.js";
+import GetMessages from "./routes/GetMessages.js";
+import AddMessage from "./routes/AddMessage.js";
+import UploadFile from "./routes/uploadFile.js";
+import GetImage from "./routes/getImage.js";
+import AddLogin from "./routes/addLogin.js";
+import GetLogin from "./routes/getLogin.js";
+import cors from 'cors';
+const app=express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ extended: false }));
+app.use(cors());
+app.use(express.json());
+DBconnection();
+// app.use("/",Image);
+app.use("/",GetLogin);
+app.use("/",AddLogin);
+app.use("/",Login);
+app.use("/",User);
+app.use("/",ConversationRoute);
+app.use("/",GetConversation);
+app.use("/",AddMessage);
+app.use("/",GetMessages);
+app.use("/",UploadFile);
+app.use("/",GetImage);
+app.listen(5000,()=>{
+    console.log("server is running at 5000");
+})
