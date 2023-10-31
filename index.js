@@ -1,7 +1,6 @@
 import express from "express";
 import DBconnection from "./connection/db.js";
 import bodyParser from 'body-parser';
-import Image from "./routes/Login.js";
 import Login from "./routes/Check.js";
 import User from "./routes/User.js";
 import ConversationRoute from "./routes/Conversation.js";
@@ -19,7 +18,6 @@ app.use(bodyParser.json({ extended: false }));
 app.use(cors());
 app.use(express.json());
 DBconnection();
-// app.use("/",Image);
 app.use("/",GetLogin);
 app.use("/",AddLogin);
 app.use("/",Login);

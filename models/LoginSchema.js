@@ -3,11 +3,7 @@ const Login= new mongoose.Schema({
     name:String,
     email:String,
     password:String,
-    img:
-    {
-        data: String,
-        contentType: String
-    }
+    img:String
 });
 const LoginSchema = mongoose.model('Image',Login);
 

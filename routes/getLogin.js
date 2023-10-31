@@ -15,7 +15,6 @@ const GetLogin=express.Router();
 GetLogin.get("/image/:filename",async(req,res)=>{
     try{
         const file=await gfs.collection('photos').findOne({filename:req.params.filename});
-        console.log(file);
         const readStream=GridFSBucket.openDownloadStream(file._id);
         readStream.pipe(res);
     }catch(error){
